@@ -11,97 +11,10 @@
         <button id="theme-toggle">Toggle Dark Mode</button>
     </div>
     <div class="container">
-        <h1>Pet Face Test (Image Upload)</h1>
-        <input type="file" id="image-upload" accept="image/*">
-        <img id="uploaded-image" src="#" alt="Uploaded Image" style="display:none;">
-        <button type="button" id="predict-button">Predict</button>
-        <div id="label-container"></div>
+        <h1>Dinner Menu Recommender</h1>
+        <button id="generator-btn">Recommend Menu</button>
+        <div id="menu-display" class="menu-display"></div>
     </div>
-    <div id="disqus_thread"></div>
-    <script>
-        /**
-        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-
-        var disqus_config = function () {
-        this.page.url = window.location.href;  // Use the current page's URL
-        this.page.identifier = 'pet-face-test-page'; // A unique identifier for this page
-        };
-
-        (function() { // DON'T EDIT BELOW THIS LINE
-        var d = document, s = d.createElement('script');
-        s.src = 'https://https-product-builder-johnehk-pages-dev.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
-    <script type="text/javascript">
-        // More API functions here:
-        // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
-
-        // the link to your model provided by Teachable Machine export panel
-        const URL = "./my_model/";
-
-        let model, labelContainer, maxPredictions, uploadedImageElement;
-
-        // Load the image model and setup the UI
-        async function init() {
-            const modelURL = URL + "model.json";
-            const metadataURL = URL + "metadata.json";
-
-            model = await tmImage.load(modelURL, metadataURL);
-            maxPredictions = model.getTotalClasses();
-
-            labelContainer = document.getElementById("label-container");
-            for (let i = 0; i < maxPredictions; i++) { // and class labels
-                labelContainer.appendChild(document.createElement("div"));
-            }
-
-            const imageUpload = document.getElementById('image-upload');
-            uploadedImageElement = document.getElementById('uploaded-image');
-            const predictButton = document.getElementById('predict-button');
-
-            imageUpload.addEventListener('change', (event) => {
-                if (event.target.files && event.target.files[0]) {
-                    const reader = new FileReader();
-                    reader.onload = (e) => {
-                        uploadedImageElement.src = e.target.result;
-                        uploadedImageElement.style.display = 'block';
-                        // Clear previous predictions when a new image is uploaded
-                        for (let i = 0; i < maxPredictions; i++) {
-                            labelContainer.childNodes[i].innerHTML = "";
-                        }
-                    };
-                    reader.readAsDataURL(event.target.files[0]);
-                }
-            });
-
-            predictButton.addEventListener('click', () => {
-                if (uploadedImageElement.src && uploadedImageElement.src !== '#') {
-                    predict();
-                } else {
-                    alert("Please upload an image first!");
-                }
-            });
-        }
-
-        // run the uploaded image through the image model
-        async function predict() {
-            // predict can take in an image, video or canvas html element
-            const prediction = await model.predict(uploadedImageElement);
-            for (let i = 0; i < maxPredictions; i++) {
-                const classPrediction =
-                    prediction[i].className + ": " + prediction[i].probability.toFixed(2);
-                labelContainer.childNodes[i].innerHTML = classPrediction;
-            }
-        }
-
-        // Initialize the model when the page loads
-        document.addEventListener('DOMContentLoaded', init);
-    </script>
     <script src="main.js"></script>
 </body>
-</html>1
+</html>
