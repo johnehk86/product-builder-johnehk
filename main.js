@@ -9,7 +9,12 @@ const dinnerMenus = [
     "Sundubu Jjigae",
     "Galbi",
     "Jajangmyeon",
-    "Haemul Pajeon"
+    "Haemul Pajeon",
+    "Pizza",
+    "Pasta",
+    "Steak",
+    "Sushi",
+    "Ramen"
 ];
 
 const generatorBtn = document.getElementById('generator-btn');
@@ -46,9 +51,31 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 generatorBtn.addEventListener('click', () => {
+    // Show a loading message
+    menuDisplay.innerHTML = '<p>Finding a delicious menu...</p>';
+
     const randomIndex = Math.floor(Math.random() * dinnerMenus.length);
     const selectedMenu = dinnerMenus[randomIndex];
-    menuDisplay.textContent = selectedMenu;
+
+    // Fetch a random image from Unsplash based on the menu
+    const imageUrl = `https://source.unsplash.com/400x300/?${selectedMenu}`;
+
+    menuDisplay.innerHTML = ''; // Clear display
+
+    const foodImage = document.createElement('img');
+    foodImage.src = imageUrl;
+    foodImage.alt = `A picture of ${selectedMenu}`;
+    foodImage.style.maxWidth = '100%';
+    foodImage.style.height = 'auto';
+    foodImage.style.borderRadius = '8px';
+
+    const foodName = document.createElement('p');
+    foodName.textContent = selectedMenu;
+    foodName.style.marginTop = '10px';
+    foodName.style.fontWeight = 'bold';
+
+    menuDisplay.appendChild(foodImage);
+    menuDisplay.appendChild(foodName);
 });
 
 
