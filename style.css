@@ -1,15 +1,48 @@
 
+:root {
+    --background-color: #f0f0f0;
+    --text-color: #333;
+    --container-bg: #fff;
+    --button-bg: #4CAF50;
+    --button-text: white;
+    --number-bg: #f0f0f0;
+    --number-text: #333;
+}
+
+body.dark-mode {
+    --background-color: #333;
+    --text-color: #f0f0f0;
+    --container-bg: #444;
+    --button-bg: #555;
+    --button-text: #f0f0f0;
+    --number-bg: #555;
+    --number-text: #f0f0f0;
+}
+
 body {
     font-family: sans-serif;
     display: flex;
+    flex-direction: column; /* Changed to column to accommodate theme toggle */
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f0f0f0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container {
     text-align: center;
+    background-color: var(--container-bg);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+h1 {
+    color: var(--text-color);
+    transition: color 0.3s ease;
 }
 
 #generator-btn {
@@ -18,9 +51,10 @@ body {
     cursor: pointer;
     border-radius: 5px;
     border: none;
-    background-color: #4CAF50;
-    color: white;
+    background-color: var(--button-bg);
+    color: var(--button-text);
     margin-bottom: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 lotto-numbers {
@@ -28,3 +62,21 @@ lotto-numbers {
     justify-content: center;
     gap: 10px;
 }
+
+.theme-switcher {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.theme-switcher button {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
