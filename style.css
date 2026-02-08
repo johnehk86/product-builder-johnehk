@@ -57,10 +57,18 @@ h1 {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-lotto-numbers {
+.menu-display {
+    margin-top: 20px;
+    padding: 20px;
+    border: 2px dashed var(--button-bg);
+    border-radius: 10px;
+    min-height: 50px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-color);
     display: flex;
     justify-content: center;
-    gap: 10px;
+    align-items: center;
 }
 
 .theme-switcher {
