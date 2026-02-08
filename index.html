@@ -1,19 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dinner Menu Recommender</title>
+    <title>오늘 뭐 먹지? - 저녁 메뉴 추천</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="theme-switcher">
-        <button id="theme-toggle">Toggle Dark Mode</button>
+        <button id="theme-toggle" aria-label="다크모드 전환">
+            <span class="theme-icon">🌙</span>
+        </button>
     </div>
     <div class="container">
-        <h1>Dinner Menu Recommender</h1>
-        <button id="generator-btn">Recommend Menu</button>
+        <h1>오늘 뭐 먹지?</h1>
+        <p class="subtitle">버튼을 누르면 오늘의 저녁 메뉴를 추천해드려요</p>
+        <button id="generator-btn">
+            <span class="btn-icon">🎲</span>
+            <span>메뉴 추천받기</span>
+        </button>
         <div id="menu-display" class="menu-display"></div>
+        <button id="retry-btn" class="retry-btn" style="display: none;">
+            <span>다른 메뉴 추천받기</span>
+        </button>
     </div>
     <script src="main.js"></script>
 </body>
