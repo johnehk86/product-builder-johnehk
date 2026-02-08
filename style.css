@@ -75,17 +75,36 @@ h1 {
 }
 
 /* Teachable Machine specific styles */
-#webcam-container {
+#image-upload {
     margin-top: 20px;
-    border: 2px solid var(--text-color);
+    margin-bottom: 10px;
+}
+
+#uploaded-image {
+    max-width: 200px;
+    max-height: 200px;
+    border: 1px solid var(--text-color);
     border-radius: 8px;
-    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+#predict-button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 #label-container {
     margin-top: 20px;
     font-size: 1.2rem;
     color: var(--text-color);
+    min-height: 50px; /* Ensure space for predictions */
 }
 
 #label-container div {
