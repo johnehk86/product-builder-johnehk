@@ -157,3 +157,11 @@ h1 {
     opacity: 0.9;
 }
 
+#disqus_thread {
+    margin-top: 40px; /* Add some space above the comments */
+    width: 100%; /* Take full width of its parent (body) */
+    max-width: 700px; /* Max width for readability, adjust as needed */
+    padding: 0 20px; /* Add some horizontal padding */
+    box-sizing: border-box; /* Include padding in the width calculation */
+}
+
